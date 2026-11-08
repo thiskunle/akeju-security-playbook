@@ -1,0 +1,15 @@
+# Copyright (c) 2026 Adekunle Akeju. All rights reserved except as licensed.
+# Small Business Security Playbook by Adekunle Akeju, created by Adekunle Akeju. SPDX-License-Identifier: CC-BY-SA-4.0
+name: CI
+on:
+  push:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - run: python scripts/check_docs.py
